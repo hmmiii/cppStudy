@@ -7,6 +7,9 @@ class Counter{
     int value; // private 데이터 멤버
 
     public:
+        Counter(){ // 생성자 함수
+            value = 0;
+        }
         void reset(){
             value = 0;
         }
