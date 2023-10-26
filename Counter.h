@@ -5,13 +5,12 @@
 
 class Counter{
     int value; // private 데이터 멤버
-    int value2;
 
     public:
         // Counter(){ // 생성자 함수
         //     value = 0;
         // }
-        Counter() : value{0}, value2{0} {}; // 생성자 함수, 초기화 리스트
+        Counter() : value{0} {}; // 생성자 함수, 초기화 리스트
         void reset(){
             value = 0;
         }
