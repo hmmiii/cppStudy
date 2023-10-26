@@ -15,6 +15,20 @@ class Counter{
             ++value;
         }
         // 멤버 함수에서는 블록에 대해서 const 키워드 지정이 가능. 멤버 변수를 변경하지 않음을 나타냄.
+        // 멤버 변수를 변경하지 않는 것이 명확하다면, 반드시 명시적으로 const를 적용하자.
+
+        /*
+
+        아래의 경우 명시하지 않으면 오류가 발생한다.
+
+        void g(const Counter& c){
+            cout << c.getValue();
+            ...
+        }        
+        
+        */
+
+
         int getValue() const {
             return value;
         }
