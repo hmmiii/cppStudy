@@ -10,10 +10,12 @@ class Counter{
         void reset(){
             value = 0;
         }
-        const void count(){
+        // count 함수의 블록에 const 지정 시 함수 호출시 오류발생한다. value 값 변경 시도이기 때문.
+        void count(){
             ++value;
         }
-        const int getValue(){
+        // 멤버 함수에서는 블록에 대해서 const 키워드 지정이 가능
+        int getValue() const {
             return value;
         }
 };
