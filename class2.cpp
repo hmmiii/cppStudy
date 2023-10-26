@@ -31,6 +31,8 @@ class className{
         ....
 }
 
+클래스를 사용할 경우 대부분 헤더파일을 만들어서 사용한다.
+
 * 클래스의 가시성 지시어
 private(default), public, protected가 있다.
 - private
@@ -55,18 +57,50 @@ private(default), public, protected가 있다.
 
 * 생성자(constructor)
 객체가 생성될 때 수행할 작업을 정의하는 특수한 멤버함수로, 객체의 초기화 작업을 수행한다.
+생성자를 다중정의 할 수 있음.
+클래스의 이름을 사용해서 선언
+생성자 앞에 반환 자료형을 표시하지 않으며 값을 return 하지 않음
+생성자는 public 으로 선언해야 함. 그래야 외부에서 클래스 객체 생성 가능
+
+class className{
+    .....
+
+    public:
+        className(fParameterList){
+            ..... // 객체 생성을 위한 준비 작업
+        }
+}
+
+Counter() : value{0} {}; // 생성자 함수, 초기화 리스트 
 
 * 소멸자(destructor)
 객체가 소멸될 때 수행할 작업을 정의하는 특수한 멤버함수로, 객체가 가지고 있는 자원을 반납하는 등의 처리를 담당한다.
+클래스의 이름에 '~'을 붙여 사용
+매개변수가 없으며 클래스에 하나의 소멸자만 사용 가능, 매개변수가 없으므로 다중정의도 불가능.
+public으로 선언하는 것이 일반적
+상속을 통해 파생 클래스를 정의하는 경우 virtual을 지정해서 가상함수가 되도록 하는 것이 좋음
+
+class className{
+    .....
+
+    public:
+        className(fParameterList){
+            ..... // 객체 생성을 위한 준비 작업
+        }
+
+        ~className(){
+            ..... // 객체 제거를 위한 정리 작업
+        }
+}
+
+
 */
 
 int main()
 {
     // 클래스의 사용
     Counter cnt;
-    cnt.reset();
     cnt.count();
-    cnt.reset();
     cnt.count();
     cnt.count();
     cout << "계수기의 현재 값 : " << cnt.getValue() << endl;
