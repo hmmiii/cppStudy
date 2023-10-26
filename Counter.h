@@ -5,6 +5,7 @@
 
 class Counter{
     int value; // private 데이터 멤버
+    int value2;
 
     public:
         // Counter(){ // 생성자 함수
