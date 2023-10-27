@@ -27,10 +27,7 @@ public:
         if(a) memcpy(arr, a, sizeof(float) * n);
     }
     // 깊은 복사를 위한 복사 생성자.
-    VecF(const VecF& fv) : n{fv.n}{
-        arr = new float[n]; // 포인터 arr에 새롭게 fv.n만큼 복사한 메모리 할당
-        memcpy(arr, fv.arr, sizeof(float) * n); // fv.arr을 깊은복사한 arr.
-    }
+    VecF(const VecF& fv) : VecF(fv.n, fv.arr) {}
     // 이동 생성자
     VecF(VecF&& fv) : n{fv.n}, arr{fv.arr}{
         fv.arr = nullptr; // rvalue의 포인터 메모리 공간을 끊음 delete는 nullptr일 경우 작동하지 않기 때문에 꼭 필요.
