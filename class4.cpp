@@ -187,6 +187,9 @@ int main()
     VecF v3 = v1.add(v2);
     v3.print();
     cout << endl;
+    VecF v4({1,2});
+    v4.print();
+    cout << endl;
 
     // static
     cout << "-------------------static"<< endl;

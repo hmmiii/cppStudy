@@ -2,6 +2,7 @@
 #define VECF_H_INCLUDED
 #include <iostream>
 #include <cstring>
+#include <initializer_list>
 using namespace std;
 
 /*
@@ -25,6 +26,11 @@ public:
         // 여기서는 float의 크기 x n의 값을 사이즈로 설정한다.
         // 즉, a가 기본값이 아니라 따로 인수를 받았을 경우 a의 주소를 복사하고 크기는 float * n만큼 설정.
         if(a) memcpy(arr, a, sizeof(float) * n);
+    }
+    // 초기화 리스트 생성자로 생성자 다중 정의.
+    VecF(initializer_list<float> lst) : n{ static_cast<int>(lst.size()) } {
+        arr = new float[n];
+        copy(lst.begin(), lst.end(), arr);
     }
     // 깊은 복사를 위한 복사 생성자.
     VecF(const VecF& fv) : VecF(fv.n, fv.arr) {}
